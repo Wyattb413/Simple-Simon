@@ -1,0 +1,5 @@
+.lightsaberHilt {
+	width: 240px;
+	height: 54px;
+	transform: rotate(180deg);
+}
