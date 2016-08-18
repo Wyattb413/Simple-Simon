@@ -13,7 +13,9 @@ function randomNumberFunction(){
 
 
 $('#hilt1').click(function(){
-	console.log('#hilt1');
+	// console.log('#hilt1');
+	userSelectionString += "#hilt1" + " ";
+	console.log(userSelectionString);
 	$('#lightsaberRed').addClass('saberExtended');
 	setTimeout(function(){
 		$('#lightsaberRed').removeClass('saberExtended');
@@ -21,7 +23,9 @@ $('#hilt1').click(function(){
 });
 
 $('#hilt2').click(function(){
-	console.log('#hilt2');
+	// console.log('#hilt2');
+	userSelectionString += "#hilt2" + " ";
+	console.log(userSelectionString);
 	$('#lightsaberPurple').addClass('saberExtended');
 	setTimeout(function(){
 		$('#lightsaberPurple').removeClass('saberExtended');
@@ -29,7 +33,9 @@ $('#hilt2').click(function(){
 });
 
 $('#hilt3').click(function(){
-	console.log('#hilt3');
+	// console.log('#hilt3');
+	userSelectionString += "#hilt3" + " ";
+	console.log(userSelectionString);
 	$('#lightsaberBlue').addClass('saberExtended');
 	setTimeout(function(){
 		$('#lightsaberBlue').removeClass('saberExtended');
@@ -37,7 +43,9 @@ $('#hilt3').click(function(){
 });
 
 $('#hilt4').click(function(){
-	console.log('#hilt4');
+	// console.log('#hilt4');
+	userSelectionString += "#hilt4" + " ";
+	console.log(userSelectionString);
 	$('#lightsaberGreen').addClass('saberExtended');
 	setTimeout(function(){
 		$('#lightsaberGreen').removeClass('saberExtended');
@@ -45,7 +53,9 @@ $('#hilt4').click(function(){
 });
 
 $('#hilt5').click(function(){
-	console.log('#hilt5');
+	// console.log('#hilt5');
+	userSelectionString += "#hilt5" + " ";
+	console.log(userSelectionString);
 	$('#lightsaberWhite').addClass('saberExtended');
 	setTimeout(function(){
 		$('#lightsaberWhite').removeClass('saberExtended');
@@ -53,7 +63,9 @@ $('#hilt5').click(function(){
 });
 
 $('#hilt6').click(function(){
-	console.log('#hilt6');
+	// console.log('#hilt6');
+	userSelectionString += "#hilt6" + " ";
+	console.log(userSelectionString);
 	$('#lightsaberOrange').addClass('saberExtended');
 	setTimeout(function(){
 		$('#lightsaberOrange').removeClass('saberExtended');
@@ -61,7 +73,9 @@ $('#hilt6').click(function(){
 });
 
 $('#hilt7').click(function(){
-	console.log('#hilt7');
+	// console.log('#hilt7');
+	userSelectionString += "#hilt7" + " ";
+	console.log(userSelectionString);
 	$('#lightsaberYellow').addClass('saberExtended');
 	setTimeout(function(){
 		$('#lightsaberYellow').removeClass('saberExtended');
@@ -71,6 +85,7 @@ $('#hilt7').click(function(){
 
 randomNumberFunction();
 console.log(randomSelectionString);
+console.log(userSelectionString);
 
 switch (randomNumber) {
 	case 1:
