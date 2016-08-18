@@ -1,5 +1,53 @@
 .lightsaberHilt {
 	width: 240px;
 	height: 54px;
+}
+.rotate180 {
 	transform: rotate(180deg);
 }
+.rotate90 {
+	transform: rotate(90deg);
+}
+.lightsaberBlade {
+	display: inline-block;
+	margin-bottom: 20px;
+	border-radius: 5px;
+}
+.saberHolstered {
+	width: 1px;
+	height: 18px;
+}
+.saberExtended {
+	width: 500px;
+	height: 18px;
+}
+#lightsaberRed {
+	background-color: Red;
+}
+#lightsaberPurple {
+	background-color: Purple;
+}
+#lightsaberBlue {
+	background-color: Blue;
+}
+#lightsaberGreen {
+	background-color: Green;
+}
+#lightsaberWhite {
+	background-color: Black;
+}
+#lightsaberOrange {
+	background-color: Orange;
+}
+#lightsaberYellow {
+	background-color: Yellow;
+}
+#playButton {
+	background-color: blue;
+	color: red;
+	margin-left: 45px;
+	/*width: 150px;*/
+	height: 30px;
+}
+
+/*get blades to go from less opcatiy to max opacity as well as grow right*/
