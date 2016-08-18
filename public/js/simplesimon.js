@@ -71,18 +71,51 @@ $('#hilt7').click(function(){
 
 randomNumberFunction();
 console.log(randomSelectionString);
-randomNumberFunction();
-console.log(randomSelectionString);
-randomNumberFunction();
-console.log(randomSelectionString);
-randomNumberFunction();
-console.log(randomSelectionString);
-randomNumberFunction();
-console.log(randomSelectionString);
-randomNumberFunction();
-console.log(randomSelectionString);
-randomNumberFunction();
-console.log(randomSelectionString);
+
+switch (randomNumber) {
+	case 1:
+		$('#lightsaberRed').addClass('saberExtended');
+		setTimeout(function(){
+			$('#lightsaberRed').removeClass('saberExtended');
+		}, 650);
+		break;
+	case 2:
+		$('#lightsaberPurple').addClass('saberExtended');
+		setTimeout(function(){
+			$('#lightsaberPurple').removeClass('saberExtended');
+		}, 650);
+		break;
+	case 3:
+		$('#lightsaberBlue').addClass('saberExtended');
+		setTimeout(function(){
+			$('#lightsaberBlue').removeClass('saberExtended');
+		}, 650);
+		break;
+	case 4:
+		$('#lightsaberGreen').addClass('saberExtended');
+		setTimeout(function(){
+			$('#lightsaberGreen').removeClass('saberExtended');
+		}, 650);
+		break;
+	case 5:
+		$('#lightsaberWhite').addClass('saberExtended');
+		setTimeout(function(){
+			$('#lightsaberWhite').removeClass('saberExtended');
+		}, 650);
+		break;
+	case 6:
+		$('#lightsaberOrange').addClass('saberExtended');
+		setTimeout(function(){
+			$('#lightsaberOrange').removeClass('saberExtended');
+		}, 650);
+		break;
+	case 7:
+		$('#lightsaberYellow').addClass('saberExtended');
+		setTimeout(function(){
+			$('#lightsaberYellow').removeClass('saberExtended');
+		}, 650);
+		break;
+}
 
 
 
