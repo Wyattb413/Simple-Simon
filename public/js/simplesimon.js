@@ -11,12 +11,15 @@ $('#playButton').click(function(){
 
 	setTimeout(function() {
 
+//<!-- //////////////////////////////////////////////////Function For Random Number//////////////////////////////////////////////////////////// -->
+
 		function randomNumberFunction(){
 			randomNumber = Math.floor((Math.random() * 7) + 1);
 			randomSelection = "hilt" + randomNumber + " ";
 			randomSelectionString += randomSelection;
 		}
 
+//<!-- ////////////////////////////////////////////////////Adds Click Events For Lightsaber Hilts////////////////////////////////////////////// -->
 
 		$('#hilt1').click(function(){
 			// console.log('#hilt1');
@@ -88,10 +91,10 @@ $('#playButton').click(function(){
 			}, 650);
 		});
 
+//<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
 		randomNumberFunction();
 		console.log(randomSelectionString);
-		console.log(userSelectionString);
 
 		switch (randomNumber) {
 			case 1:
@@ -137,6 +140,9 @@ $('#playButton').click(function(){
 				}, 650);
 				break;
 		};
+
+//<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
 	}, 650);
 
 });
