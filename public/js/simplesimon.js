@@ -7,6 +7,9 @@ var userSelectionString = "";
 
 $('#playButton').click(function(){
 
+	// var dialog = $('#dialogText').dialog('open');
+	// setTimeout(function() { dialog.dialog('close'); }, 3000);
+
 	alert("Starting Game");
 
 	setTimeout(function() {
@@ -153,3 +156,7 @@ $('#playButton').click(function(){
 
 
 })();
+
+<!-- //////////////////////////////////////////////////TODO List//////////////////////////////////////////////////////////// -->
+
+//TODO: Create jqueryUi auto close dialog
