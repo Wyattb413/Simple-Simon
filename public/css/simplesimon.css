@@ -21,19 +21,19 @@
 	width: 500px;
 	height: 18px;
 }
-#lightsaberRed {
+#1 {
 	background-color: Red;
 }
-#lightsaberPurple {
+#2 {
 	background-color: Purple;
 }
-#lightsaberBlue {
+#3 {
 	background-color: Blue;
 }
-#lightsaberGreen {
+#4 {
 	background-color: Green;
 }
-#lightsaberWhite {
+/*#lightsaberWhite {
 	background-color: Black;
 }
 #lightsaberOrange {
@@ -41,7 +41,7 @@
 }
 #lightsaberYellow {
 	background-color: Yellow;
-}
+}*/
 #playButton {
 	background-color: blue;
 	color: red;
