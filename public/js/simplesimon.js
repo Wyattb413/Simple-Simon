@@ -4,6 +4,7 @@
 var randomNumber;
 var hiltClicked = "";
 var sequence = [];
+var index = 0;
 var userSequence = [];
 var sequenceKey = {
 	hilt1 : 1,
@@ -20,6 +21,7 @@ function randomNumberFunction(){
 	console.log("sequence^");
 };
 
+
 function caseFunctions(str) {
 	$(str).addClass('saberExtended');													//takes string from game() switch case based on random number generated and adds 'saberExtended' class to make saber appear
 	setTimeout(function(){																//timeout to improve 'animation' apperance (keeps from sudden appear and disapear)
@@ -27,25 +29,31 @@ function caseFunctions(str) {
 	}, 650);
 }
 
+
 function game(){
-	setTimeout(function() {																//delay for start button, to keep from instantanious game start
-		randomNumberFunction();															//callback function to generate random number
-			switch (randomNumber) {														//switch statment that corresponds with random number generated (part 1 of 2)
-				case 1:
-					caseFunctions('#lightsaberRed');
-					break;
-				case 2:
-					caseFunctions('#lightsaberPurple');
-					break;
-				case 3:
-					caseFunctions('#lightsaberBlue');
-					break;
-				case 4:
-					caseFunctions('#lightsaberGreen');
-					break;
-			};																			//passes corresponding string to caseFunctions to create 'animation' (part 2 of 2)
-	}, 650);
+	setTimeout(function() {
+		randomNumberFunction();
+		for(let i = 0; i < sequence.length; i++){
+			setTimeout(function(){
+				switch (sequence[i]) {														//switch statment that corresponds with random number generated (part 1 of 2)
+					case 1:
+						caseFunctions('#lightsaberRed');
+						break;
+					case 2:
+						caseFunctions('#lightsaberPurple');
+						break;
+					case 3:
+						caseFunctions('#lightsaberBlue');
+						break;
+					case 4:
+						caseFunctions('#lightsaberGreen');
+						break;
+				};
+			}, i * 1000);
+		}
+	}, 850);
 }
+
 
 function checksInput(){
 		if(JSON.stringify(userSequence) === JSON.stringify(sequence)) {					//checks if contents of arrays are equal by converting them to strings
@@ -61,6 +69,7 @@ function checksInput(){
 			console.log("game reset");
 		}																				//resets all varibles for fresh start (part 2 of 2)
 	}
+
 
 $('.lightsaberHilt').click(function(){													//adds click listener to 'saberHilts'
 		$(this).next('.lightsaberBlade').addClass('saberExtended');						//adds 'saberExtended' class to hilt user clicked on
