@@ -3,6 +3,7 @@
 
 var randomNumber;
 var sequence = [];
+var hiltClicked = "";
 
 
 function randomNumberFunction(){
@@ -44,6 +45,8 @@ function game(){
 		setTimeout(function(){
 			$('.lightsaberHilt').next('.lightsaberBlade').removeClass('saberExtended');
 		}, 650);
+		hiltClicked += $(this).attr('id');
+		console.log(hiltClicked);
 	})
 
 $('#playButton').click(function(){
