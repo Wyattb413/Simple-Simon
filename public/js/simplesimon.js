@@ -12,6 +12,13 @@ function randomNumberFunction(){
 	console.log("sequence^");
 };
 
+function caseFunctions(str) {
+	$(str).addClass('saberExtended');
+	setTimeout(function(){
+		$(str).removeClass('saberExtended');
+	}, 650);
+	}
+
 function game(){
 	setTimeout(function() {
 		randomNumberFunction();
@@ -31,6 +38,7 @@ function game(){
 			};
 	}, 650);
 }
+
 
 
 $('#playButton').click(function(){
