@@ -3,7 +3,7 @@
 
 var randomNumber;
 var sequence = [];
-var hiltClicked = "";
+var userSequence = [];
 
 
 function randomNumberFunction(){
@@ -47,6 +47,9 @@ function game(){
 		}, 650);
 		hiltClicked += $(this).attr('id');
 		console.log(hiltClicked);
+		userSequence.push(sequenceKey[hiltClicked]);
+		console.log(userSequence);
+		hiltClicked = "";
 	})
 
 $('#playButton').click(function(){
