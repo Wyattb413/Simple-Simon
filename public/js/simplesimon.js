@@ -62,7 +62,7 @@ function checksInput(){
 		}
 	}
 
-('.lightsaberHilt').click(function(){
+$('.lightsaberHilt').click(function(){
 		$(this).next('.lightsaberBlade').addClass('saberExtended');
 		setTimeout(function(){
 			$('.lightsaberHilt').next('.lightsaberBlade').removeClass('saberExtended');
