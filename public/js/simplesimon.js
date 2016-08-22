@@ -12,8 +12,30 @@ function randomNumberFunction(){
 	console.log("sequence^");
 };
 
+function game(){
+	setTimeout(function() {
+		randomNumberFunction();
+			switch (randomNumber) {
+				case 1:
+					caseFunctions('#lightsaberRed');
+					break;
+				case 2:
+					caseFunctions('#lightsaberPurple');
+					break;
+				case 3:
+					caseFunctions('#lightsaberBlue');
+					break;
+				case 4:
+					caseFunctions('#lightsaberGreen');
+					break;
+			};
+	}, 650);
+}
 
 
+$('#playButton').click(function(){
+	game();			
+});
 
 
 
