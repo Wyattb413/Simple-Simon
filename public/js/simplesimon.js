@@ -1,6 +1,7 @@
 "use strict";
 (function(){
 
+//==============================================================={Varible Declarations}==============================================================\
 var randomNumber;
 var hiltClicked = "";
 var sequence = [];
@@ -12,30 +13,42 @@ var sequenceKey = {
 	hilt3 : 3,
 	hilt4 : 4
 };
+//===================================================================================================================================================\
 
+//==============================================================={Function Declarations}=============================================================\
 
+/*Random Number Generator*/
 function randomNumberFunction(){
-	randomNumber = Math.floor((Math.random() * 4) + 1);									//genrates random nuber between 1-4
-	sequence.push(randomNumber);														//pushes random number to sequence array
-	console.log(sequence);
-	console.log("sequence^");
+	//genrates random nuber between 1-4
+	randomNumber = Math.floor((Math.random() * 4) + 1);
+	//pushes random number to sequence array								
+	sequence.push(randomNumber);														
 };
 
-
+/*"Button Flash" AKA Saber Show/Hide*/
 function caseFunctions(str) {
-	$(str).addClass('saberExtended');													//takes string from game() switch case based on random number generated and adds 'saberExtended' class to make saber appear
-	setTimeout(function(){																//timeout to improve 'animation' apperance (keeps from sudden appear and disapear)
-		$(str).removeClass('saberExtended');											//removes class to make saber disapear
+	/*takes string from game() switch case based on random number generated 
+	and adds 'saberExtended' class to make saber appear*/
+	$(str).addClass('saberExtended');
+	//timeout to improve 'animation' apperance (keeps from sudden appear and disapear)												
+	setTimeout(function(){
+	//removes class to make saber disapear												
+		$(str).removeClass('saberExtended');											
 	}, 650);
 }
 
-
+/*General Game Functionality*/
 function game(){
+	//timeout to avoid instant start of game upon click of play button
 	setTimeout(function() {
+		//generates a random number
 		randomNumberFunction();
+		//loops through sequence array
 		for(let i = 0; i < sequence.length; i++){
 			setTimeout(function(){
-				switch (sequence[i]) {														//switch statment that corresponds with random number generated (part 1 of 2)
+				/*takes randomNumber, applies it to switch case, and based on
+				case it passes the corresponding string to caseFunctions()*/
+				switch (sequence[i]) {														
 					case 1:
 						caseFunctions('#lightsaberRed');
 						break;
@@ -54,33 +67,46 @@ function game(){
 	}, 850);
 }
 
-
+/*Game Seqeunce Checker*/
 function checksInput(){
-		if(JSON.stringify(userSequence) === JSON.stringify(sequence)) {					//checks if contents of arrays are equal by converting them to strings
+		//checks if contents of arrays are equal by converting them to strings
+		if(JSON.stringify(userSequence) === JSON.stringify(sequence)) {					
 			console.log("you are correct")
-			// showSequence();
-			game();																		//runs next round of game if player is correct
+			//runs next round of game if player is correct
+			game();
+			//resets userSequence to avoid carryover into next round																	
 			userSequence = [];
-			index = 0;															//resets userSequence
+			index = 0;															
 		} else {
-			console.log("you tried, young padwan");										//lets player know they lost (part 1 of 2)
+			//lets player know they lost
+			console.log("you tried, young padwan");
+			//resets all varibles for fresh start									
 			hiltClicked = "";												
 			sequence = [];
 			userSequence = [];
 			console.log("game reset");
-		}																				//resets all varibles for fresh start (part 2 of 2)
+		}																				
 	}
 
+//==================================================================================================================================================\
 
-$('.lightsaberHilt').click(function(){													//adds click listener to 'saberHilts'
-		$(this).next('.lightsaberBlade').addClass('saberExtended');						//adds 'saberExtended' class to hilt user clicked on
-		setTimeout(function(){															//prevents instant adding and removing of class
-			$('.lightsaberHilt').next('.lightsaberBlade').removeClass('saberExtended');	//removes 'saberExtended' class from hilt user clicked on
+//adds click listener to 'saberHilts'
+$('.lightsaberHilt').click(function(){		
+		//adds 'saberExtended' class to hilt user clicked on											
+		$(this).next('.lightsaberBlade').addClass('saberExtended');						
+		//prevents instant adding and removing of class
+		setTimeout(function(){		
+			//removes 'saberExtended' class from hilt user clicked on													
+			$('.lightsaberHilt').next('.lightsaberBlade').removeClass('saberExtended');	
 		}, 650);
-		hiltClicked += $(this).attr('id');												//grabs id of hilt clicked from html and stores it in hiltClicked varible
+		//grabs id of hilt clicked from html and stores it in hiltClicked varible
+		hiltClicked += $(this).attr('id');												
 		console.log(hiltClicked);
-		userSequence.push(sequenceKey[hiltClicked]);									//pushes paired sequenceKey from 'hiltClicked' to userSequence Array
+		/*pairs id from 'hiltClicked' with 'sequenceKey' object list and pushes 
+		it to userSequence array*/
+		userSequence.push(sequenceKey[hiltClicked]);									
 		console.log(userSequence);
+		/**/
 		if(sequenceKey[hiltClicked] == sequence[index]){
 			index += 1
 			console.log('bubs');
@@ -92,9 +118,9 @@ $('.lightsaberHilt').click(function(){													//adds click listener to 'sab
 			console.log("game reset");
 			return;
 		}																			
+		hiltClicked = "";																//clears 'hiltClicked' to avoid undefined be produced from userSequence Array
 		if(userSequence.length == sequence.length){										//if userSequence array and sequence array have the same length, runs checksInput function
 			checksInput();
-		hiltClicked = "";																//clears 'hiltClicked' to avoid undefined be produced from userSequence Array
 		}
 	})
 
