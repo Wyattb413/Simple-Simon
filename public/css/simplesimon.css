@@ -21,16 +21,16 @@
 	width: 500px;
 	height: 18px;
 }
-#1 {
+#lightsaberRed {
 	background-color: Red;
 }
-#2 {
+#lightsaberPurple {
 	background-color: Purple;
 }
-#3 {
+#lightsaberBlue {
 	background-color: Blue;
 }
-#4 {
+#lightsaberGreen {
 	background-color: Green;
 }
 /*#lightsaberWhite {
