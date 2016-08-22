@@ -1,5 +1,5 @@
 "use strict";
-// (function(){
+(function(){
 
 var randomNumber;
 var hiltClicked = "";
@@ -60,7 +60,8 @@ function checksInput(){
 			console.log("you are correct")
 			// showSequence();
 			game();																		//runs next round of game if player is correct
-			userSequence = [];															//resets userSequence
+			userSequence = [];
+			index = 0;															//resets userSequence
 		} else {
 			console.log("you tried, young padwan");										//lets player know they lost (part 1 of 2)
 			hiltClicked = "";												
@@ -80,9 +81,20 @@ $('.lightsaberHilt').click(function(){													//adds click listener to 'sab
 		console.log(hiltClicked);
 		userSequence.push(sequenceKey[hiltClicked]);									//pushes paired sequenceKey from 'hiltClicked' to userSequence Array
 		console.log(userSequence);
-		hiltClicked = "";																//clears 'hiltClicked' to avoid undefined be produced from userSequence Array
+		if(sequenceKey[hiltClicked] == sequence[index]){
+			index += 1
+			console.log('bubs');
+		} else {
+			console.log("you tried, young padwan");										
+			hiltClicked = "";												
+			sequence = [];
+			userSequence = [];
+			console.log("game reset");
+			return;
+		}																			
 		if(userSequence.length == sequence.length){										//if userSequence array and sequence array have the same length, runs checksInput function
 			checksInput();
+		hiltClicked = "";																//clears 'hiltClicked' to avoid undefined be produced from userSequence Array
 		}
 	})
 
@@ -91,4 +103,4 @@ $('#playButton').click(function(){
 	game();																				//play button, runs game function
 });
 
-// })();
+})();
