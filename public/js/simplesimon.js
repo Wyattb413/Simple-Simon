@@ -2,8 +2,15 @@
 // (function(){
 
 var randomNumber;
+var hiltClicked = "";
 var sequence = [];
 var userSequence = [];
+var sequenceKey = {
+	hilt1 : 1,
+	hilt2 : 2,
+	hilt3 : 3,
+	hilt4 : 4
+};
 
 
 function randomNumberFunction(){
@@ -40,6 +47,21 @@ function game(){
 	}, 650);
 }
 
+function checksInput(){
+		if(JSON.stringify(userSequence) === JSON.stringify(sequence)) {
+			console.log("you are correct")
+			// showSequence();
+			game();
+			userSequence = [];
+		} else {
+			console.log("you tried, young padwan");
+			hiltClicked = "";
+			sequence = [];
+			userSequence = [];
+			console.log("game reset");
+		}
+	}
+
 ('.lightsaberHilt').click(function(){
 		$(this).next('.lightsaberBlade').addClass('saberExtended');
 		setTimeout(function(){
@@ -50,7 +72,11 @@ function game(){
 		userSequence.push(sequenceKey[hiltClicked]);
 		console.log(userSequence);
 		hiltClicked = "";
+		if(userSequence.length == sequence.length){
+			checksInput();
+		}
 	})
+
 
 $('#playButton').click(function(){
 	game();			
