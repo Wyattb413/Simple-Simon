@@ -13,6 +13,7 @@
 		hilt3 : 3,
 		hilt4 : 4
 	};
+	var toggleExplode = false;
 	//===================================================================================================================================================\
 
 	//==============================================================={Function Declarations}=============================================================\
@@ -79,7 +80,7 @@
 					};
 				}, i * 2000);
 			}
-		}, 850);
+		}, 750);
 	}
 
 	/*Game Seqeunce Checker*/
@@ -146,6 +147,12 @@
 				console.log('bubs');
 			//if user click does not match up against sequence array, game is reset
 			} else {
+				$('#laser').removeClass('noDisplay');
+				setTimeout(function() {
+					$('#earth').toggle("explode", {pieces: 16}, 1000)
+					$('#laser').addClass('noDisplay');
+				}, 650);
+				toggleExplode = true;
 				console.log("you tried, young padwan");										
 				hiltClicked = "";												
 				sequence = [];
@@ -167,7 +174,11 @@
 
 	//play button, runs game function
 	$('#playButton').click(function(){
-		game();	
+		game();
+		// $('#laser').addClass('noDisplay');
+		if(toggleExplode){
+			$('#earth').toggle("explode", { pieces: 16})
+		}
 	//==================================================================================================================================================\																			
 	});
 

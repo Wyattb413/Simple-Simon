@@ -1,3 +1,9 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-image: url('/img/deathstar.jpg');
+	background-color: #000;
+}
 .lightsaberHilt {
 	width: 240px;
 	height: 54px;
@@ -21,14 +27,10 @@
 	left: -1.73em;
 }
 .saberHolstered {
-	/*width: 1px;
-	height: 18px;*/
 	-webkit-animation-name:saberHolster; 
 	-webkit-animation-duration: 1s;
 }
 .saberExtended {
-	/*width: 550px;
-	height: 18px;*/
 	-webkit-animation-name:saberExtend; 
 	-webkit-animation-duration: 1s;
 }
@@ -39,7 +41,7 @@
 }
 @-webkit-keyframes saberHolster {
 	from{
-		width: 550px;
+		width: 450px;
 		height: 18px;
 	}
 	to{
@@ -53,7 +55,7 @@
 		height: 18px;
 	}
 	to{
-		width: 550px;
+		width: 450px;
 		height: 18px;
 	}
 }
@@ -78,12 +80,125 @@
 #lightsaberYellow {
 	background-color: Yellow;
 }*/
-#playButton {
-	background-color: blue;
-	color: red;
-	margin-left: 45px;
-	/*width: 150px;*/
-	height: 30px;
+input#playButton:focus {
+    outline-width: 0;
+}
+#sabersContainer {
+	height: auto;
+	width: 100%;
+	/*background-color: grey;*/
+	position: absolute;
+	bottom: 0;
+	margin: 0;
+	padding: 0;
+	z-index: 4;
+}
+#button {
+	padding-left: 5em;
+}
+/*#lightsaber1 {
+	-webkit-transform: translate(-80px, -25px) rotate(335deg);
+
+}
+#lightsaber2 {
+	-webkit-transform: translate(-700px, -32px) rotate(198deg);
+
+}
+#lightsaber3 {
+	-webkit-transform: translate(-300px, -91px) rotate(198deg);
+
+}
+#lightsaber4 {
+	-webkit-transform: translate(40px, -151px) rotate(198deg);
+
+}
+.saberHilt1 {
+	-webkit-transform: rotate(148deg);
+	width: 240px;
+	height: 54px;
+	z-index: 3;
+}
+.saberHilt2 {
+	transform: rotate(222deg);
+	width: 232px;
+	height: 56px;
+	z-index: 3;
+}
+.saberHilt3 {
+	-webkit-transform: rotate(285deg);
+	width: 236px;
+	height: 54px;
+	z-index: 3;
+}
+.saberHilt4 {
+	-webkit-transform: rotate(220deg);
+	width: 236px;
+	height: 54px;
+	z-index: 3;
+}*/
+#earth {
+  position: relative;
+  width: 700px;
+  height: 700px;
+  /*margin: 3em auto;*/
+  margin-left: -16em;
+  margin-top: -4em;
+  background: url(/img/venusMap.jpg) 0 0 repeat;
+  border-radius: 50%;
+  background-size: 1350px;
+  animation: rotate 20s linear infinite;
+  transition: transform 200ms linear;
+  transform-style: preserve-3d;
+  box-shadow: inset 20px 0 80px 6px rgba(0, 0, 0, 1);
+  color: #000;
+  display: inline-block;
+  z-index: 3;
 }
 
-/*get blades to go from less opcatiy to max opacity as well as grow right*/
+#earth:after {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: -80px 15px 80px 10px rgba(0,0,0,.9) inset;
+}
+
+#earth:before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.2;
+  background: radial-gradient(circle at 100px 100px, #fff, #000);
+}
+
+@keyframes rotate {
+  0% {background-position: 0 0;}
+  100% {background-position: 1350px 0;}
+}
+#laserContainer {
+	/*background-color: grey;*/
+	/*margin-bottom: -20em;*/
+	height: 100%;
+	width: 1000px;
+	float: right;
+	-webkit-transform: rotate(90deg);
+	/*position: absolute;*/
+}
+#laser {
+	background-color: green;
+	border-radius: 50px 50px 50px 50px;
+	height: 10px;
+	position: relative;
+	-webkit-transform: translate(-300px, 150px) rotate(100deg);
+	box-shadow:0 0 5px #fff,0 0 8px #fff,0 0 12px green,0 0 15px maroon,0 0 25px green;
+}
+.noDisplay {
+	display:none;
+}
