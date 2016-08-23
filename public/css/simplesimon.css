@@ -21,17 +21,41 @@
 	left: -1.73em;
 }
 .saberHolstered {
-	width: 1px;
-	height: 18px;
+	/*width: 1px;
+	height: 18px;*/
+	-webkit-animation-name:saberHolster; 
+	-webkit-animation-duration: 1s;
 }
 .saberExtended {
-	width: 550px;
-	height: 18px;
+	/*width: 550px;
+	height: 18px;*/
+	-webkit-animation-name:saberExtend; 
+	-webkit-animation-duration: 1s;
 }
 #lightsaberRed {
 	background-color: Red;
 	box-shadow:0 0 5px #fff,0 0 8px #fff,0 0 12px #fff,0 0 15px red,0 0 25px red;
 	z-index: 1;
+}
+@-webkit-keyframes saberHolster {
+	from{
+		width: 550px;
+		height: 18px;
+	}
+	to{
+		width: 1px;
+		height: 18px;
+	}
+}
+@-webkit-keyframes saberExtend {
+	from{
+		width: 1px;
+		height: 18px;
+	}
+	to{
+		width: 550px;
+		height: 18px;
+	}
 }
 #lightsaberPurple {
 	background-color: Purple;

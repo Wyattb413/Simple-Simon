@@ -29,12 +29,27 @@
 	function caseFunctions(str) {
 		/*takes string from game() switch case based on random number generated 
 		and adds 'saberExtended' class to make saber appear*/
+		//adds 'saberExtended' class to hilt user clicked on										
 		$(str).addClass('saberExtended');
-		//timeout to improve 'animation' apperance (keeps from sudden appear and disapear)												
+		//plays saberExtend audio file
+		$('audio')[0].play()
+		/*waits one second, then removes saberExtended class 
+		(avoids instant apply/remove)*/
 		setTimeout(function(){
-		//removes class to make saber disapear												
-			$(str).removeClass('saberExtended');											
-		}, 650);
+			$(str).removeClass('saberExtended');
+		}, 1000);
+		/*waits one second for saberExtend animation to play, then plays 
+		saberHolstered animation*/
+		setTimeout(function(){
+			$(str).addClass('saberHolstered');
+			//plays saberWithdrawl audio file
+			$('audio')[1].play()
+			setTimeout(function(){		
+				/*waits one second, then removes saberHolstered file 
+				(avoids instant apply/remove)*/													
+				$(str).removeClass('saberHolstered');
+			}, 1000);
+		}, 1000);
 	}
 
 	/*General Game Functionality*/
@@ -62,7 +77,7 @@
 							caseFunctions('#lightsaberGreen');
 							break;
 					};
-				}, i * 1000);
+				}, i * 2000);
 			}
 		}, 850);
 	}
@@ -72,11 +87,13 @@
 			//checks if contents of arrays are equal by converting them to strings
 			if(JSON.stringify(userSequence) === JSON.stringify(sequence)) {					
 				console.log("you are correct")
-				//runs next round of game if player is correct
-				game();
-				//resets userSequence to avoid carryover into next round																	
-				userSequence = [];
-				index = 0;															
+				setTimeout(function(){
+					//runs next round of game if player is correct
+					game();
+					//resets userSequence to avoid carryover into next round																	
+					userSequence = [];
+					index = 0;															
+				}, 2000);
 			} else {
 				//lets player know they lost
 				console.log("you tried, young padwan");
@@ -93,14 +110,29 @@
 	//==============================================================={Responding To Player Clicks}=======================================================\
 
 	//adds click listener to 'saberHilts'
-	$('.lightsaberHilt').click(function(){		
-			//adds 'saberExtended' class to hilt user clicked on											
-			$(this).next('.lightsaberBlade').addClass('saberExtended');						
-			//prevents instant adding and removing of class
-			setTimeout(function(){		
-				//removes 'saberExtended' class from hilt user clicked on													
-				$('.lightsaberHilt').next('.lightsaberBlade').removeClass('saberExtended');	
-			}, 650);
+	$('.lightsaberHilt').click(function(){	
+			var that = this;
+			//adds 'saberExtended' class to hilt user clicked on										
+			$(that).next('.lightsaberBlade').addClass('saberExtended');
+			//plays saberExtend audio file
+			$('audio')[0].play()
+			/*waits one second, then removes saberExtended class 
+			(avoids instant apply/remove)*/
+			setTimeout(function(){
+				$(that).next('.lightsaberBlade').removeClass('saberExtended');
+			}, 1000);
+			/*waits one second for saberExtend animation to play, then plays 
+			saberHolstered animation*/
+			setTimeout(function(){
+				$(that).next('.lightsaberBlade').addClass('saberHolstered');
+				//plays saberWithdrawl audio file
+				$('audio')[1].play()
+				setTimeout(function(){		
+					/*waits one second, then removes saberHolstered file 
+					(avoids instant apply/remove)*/														
+					$(that).next('.lightsaberBlade').removeClass('saberHolstered');
+				}, 1000);
+			}, 1000);
 			//grabs id of hilt clicked from html and stores it in hiltClicked varible
 			hiltClicked += $(this).attr('id');												
 			console.log(hiltClicked);
