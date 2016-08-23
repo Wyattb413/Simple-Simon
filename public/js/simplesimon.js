@@ -32,7 +32,7 @@
 		//adds 'saberExtended' class to hilt user clicked on										
 		$(str).addClass('saberExtended');
 		//plays saberExtend audio file
-		$('audio')[0].play()
+		$('#saberExtend')[0].play()
 		/*waits one second, then removes saberExtended class 
 		(avoids instant apply/remove)*/
 		setTimeout(function(){
@@ -43,7 +43,7 @@
 		setTimeout(function(){
 			$(str).addClass('saberHolstered');
 			//plays saberWithdrawl audio file
-			$('audio')[1].play()
+			$('#saberWithdrawl')[0].play()
 			setTimeout(function(){		
 				/*waits one second, then removes saberHolstered file 
 				(avoids instant apply/remove)*/													
@@ -115,7 +115,7 @@
 			//adds 'saberExtended' class to hilt user clicked on										
 			$(that).next('.lightsaberBlade').addClass('saberExtended');
 			//plays saberExtend audio file
-			$('audio')[0].play()
+			$('#saberExtend')[0].play()
 			/*waits one second, then removes saberExtended class 
 			(avoids instant apply/remove)*/
 			setTimeout(function(){
@@ -126,7 +126,7 @@
 			setTimeout(function(){
 				$(that).next('.lightsaberBlade').addClass('saberHolstered');
 				//plays saberWithdrawl audio file
-				$('audio')[1].play()
+				$('#saberWithdrawl')[0].play()
 				setTimeout(function(){		
 					/*waits one second, then removes saberHolstered file 
 					(avoids instant apply/remove)*/														
